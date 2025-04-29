@@ -47,52 +47,60 @@
 /* This is for main hero container */
 
 .hero-container {
-    background-image: url("/background.jpg");
-    height: 840px;
-    width: 94%;
-    border-radius: 1rem;
-    margin: 0 auto;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-    opacity: .9;
-}
-
-.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Full screen height for hero section */
+    overflow: hidden;
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-.hero-container div {
-    width: 700px;
+    justify-content: center;
     text-align: center;
+    color: white;
 }
 
-.hero-container div p {
-    color: white;
-    font-size: 1.8rem;
-    font-family: "PT Sans";
-    font-weight: bold;
-    letter-spacing: 2px;
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    /* Behind content */
+}
+
+.hero-content {
+    z-index: 1;
+    padding: 2rem;
+    max-width: 800px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
 #order-btn {
-    font-size: 1.4rem;
-    font-weight: bold;
-    border: none;
-    padding: 4px 16px;
-    margin: 1.2rem 0;
-    border-radius: 6px;
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
     background-color: orange;
     color: white;
-    transition: transform 0.3s ease-in-out;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid orange;
+    transition: all .3s ease-in-out;
 }
 
 #order-btn:hover {
-    transform: scale(1.2);
-    background-color: rgb(237, 157, 9);
+    background-color: black;
+    border: 1px solid white;
+    transform: scale(1.1);
 }
+
 
 .brand-message {
     width: 65%;
@@ -310,4 +318,91 @@ hr {
 .footer-logo img {
     height: 44px;
     margin: 0 10px;
+}
+
+/* screen responsiveness */
+
+@media only screen and (max-width: 430px) {
+    .head-container {
+        width: 100%;
+        height: 4rem;
+        padding: 0 8px;
+    }
+
+    .nav-items {
+        position: absolute;
+        top: 64px;
+        right: 0;
+        height: 100vh;
+        width: 60vw;
+        max-width: 800px;
+        padding: 0 2rem;
+        z-index: 2;
+        display: none;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: white;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* When menu is active */
+    .nav-items.active {
+        transform: translateX(0);
+        display: block;
+    }
+
+    .nav-items ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin: 2rem 1rem;
+        font-size: 1.6rem;
+    }
+
+    .nav-items ul a {
+        text-decoration: none;
+        color: white;
+        width: 100%;
+        transition: all .2s ease-in-out;
+    }
+
+    .nav-items ul a:hover {
+        color: orange;
+        transform: scale(1.1);
+    }
+
+    .responsive-nav img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10px;
+        margin-right: 1rem;
+    }
+
+    .inner-container img {
+        height: 40px;
+    }
+
+    .hero-container {
+        width: 100%;
+        border-radius: 0;
+        height: 100vh;
+    }
+
+    .nav-container {
+        visibility: hidden;
+    }
+
+    #order-btn {
+        transition: all .3s ease-in-out;
+    }
+
+    #order-btn:hover {
+        background-color: black;
+        border: 1px solid white;
+        transform: scale(1.1);
+    }
+
 }
