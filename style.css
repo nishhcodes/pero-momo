@@ -329,6 +329,10 @@ hr {
         padding: 0 8px;
     }
 
+    .hero-container {
+        width: 100vw;
+    }
+
     .nav-items {
         position: absolute;
         top: 64px;
